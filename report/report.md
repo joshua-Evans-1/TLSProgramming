@@ -35,7 +35,7 @@ Project-3-TLSProgramming
 ├── NetFileXfer
 │   ├── <a href="../NetFileXfer/NetFileXferClient.py" title="">NetFileXferClient.py</a>
 │   │    Client code for tcp enhanced with tls written in Python.
-│   ├── <a href="../NetFileXfer/mountain-lake.jpeg" title="">mountain-lake.jpg</a>
+│   ├── <a href="../NetFileXfer/mountain-lake.jpg" title="">mountain-lake.jpg</a>
 │   │    test file to transfer between client and server.
 │   ├── server
 │   │   └── <a href="../NetFileXfer/server/NetFileXferServer.py" title="">NetFileXferServer.py</a>
