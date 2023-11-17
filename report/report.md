@@ -53,13 +53,9 @@ Project-3-TLSProgramming
 │        Echo TLS Client.
 ├── certs
 │   ├── <a href="../certs/cert.pem" title="">cert.pem</a>
-│   │    cert for server ssl.
-│   ├── <a href="../certs/key.pem" title="">key.pem</a>
-│   │    key for server ssl.
-│   ├── <a href="../certs/myCA.key" title="">myCA.key</a>
-│   │    key for client ssl.
-│   └── <a href="../certs/myCa.pem" title="">myCA.pem</a>
-│        cert for client ssl.
+│   │    cert for ssl.
+│   └── <a href="../certs/key.pem" title="">key.pem</a>
+│        key for ssl.
 └── report
     ├── <a href="report.md" title="">report.md</a>
     │     A detailed report including: 
