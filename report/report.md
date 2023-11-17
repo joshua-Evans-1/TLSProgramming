@@ -35,17 +35,17 @@ Project-3-TLSProgramming
 ├── NetFileXfer
 │   ├── <a href="../NetFileXfer/NetFileXferClient.py" title="">NetFileXferClient.py</a>
 │   │    Client code for tcp enhanced with tls written in Python.
-│   ├── <a href="../NetFileXfer/README.md" title="">README.md</a>
-│   │    markdown file documenting how to set up and run the applications.
 │   ├── <a href="../NetFileXfer/moutainlake.jpeg" title="">mountain-lake.jpg</a>
 │   │    test file to transfer between client and server.
-│   ├── <a href="../NetFileXfer/README.txt" title="">README.txt</a>
-│   │    text file documenting how to set up and run the applications.
 │   ├── server
 │   │   └── <a href="../NetFileXfer/server/NetFileXferServer.py" title="">NetFileXferServer.py</a>
 │   │        Server code for tcp enhanced with tls written in Python.
 │   └── <a href="../NetFileXfer/test.txt" title="">test.txt</a>
 │        test file to transfer between client and server.
+├── <a href="../README.md" title="">README.md</a>
+│    markdown file documenting how to set up and run the applications.
+├── <a href="../README.txt" title="">README.txt</a>
+│    text file documenting how to set up and run the applications.
 ├── TLSEchoServer
 │   ├── <a href="../TLSEchoServer/SimpleTLSClient.py" title="">SimpleTLSClient.py</a>
 │   │    Echo TLS Server.
@@ -67,9 +67,9 @@ Project-3-TLSProgramming
     │     Screenshots and analysis from Wireshark captures.
     │     Reflection on certificate management.
     ├── <a href="wireShark-after-tls.jpg" title="">wireShark-after-tls.jpg</a>
-    │    screenshot of wireshark after tls
+    │    screenshot of wireshark after tls.
     └── <a href="wireShark-before-tls.jpg" title="">wireShark-before-tls.jpg</a>
-         screenshot of wireshark before tls
+         screenshot of wireshark before tls.
 
 </pre>
 
