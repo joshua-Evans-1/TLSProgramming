@@ -18,7 +18,7 @@ def send_file(server_ip, server_port, file_path):
     context = ssl.create_default_context(ssl.Purpose.SERVER_AUTH)
     context.check_hostname = False
     context.verify_mode = ssl.CERT_REQUIRED
-    context.load_verify_locations("../certs/myCA.pem")
+    context.load_verify_locations("../certs/cert.pem")
     secureConnection = context.wrap_socket( client_socket, server_hostname=server_ip)
 
     try:

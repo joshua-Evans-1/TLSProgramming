@@ -18,7 +18,7 @@ def handle_client(connection):
             break
 
 def main():
-    serverPort = 12000
+    serverPort = 12002
 
     # Create a TCP/IP socket
     serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
