@@ -12,22 +12,11 @@ secureConnection = context.wrap_socket(client_socket, server_side=True)
 the server/client then uses the wrapped socket to transfer the encrypted files
 
 ```python NetFileXferServer.py
-try:
-    # Now, receive the actual file name
-    file_name = secureConnection.recv(file_name_length).decode()
-        # Receive the file content and save it
-        with open(file_name, 'wb') as file:
-            while True:
-                data = secureConnection.recv(1024)
-                if not data:
-                    break
-                file.write(data)
-        except Exception as e:
-            print(f"Error: {e}")
-
-        secureConnection.close()
+file_name = secureConnection.recv(file_name_length).decode()
 ```
-
+```python NetFileXferClient.py
+secureConnection.send(data)
+```
 ### project Structure
 
 <pre>
