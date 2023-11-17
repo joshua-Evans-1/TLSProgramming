@@ -15,7 +15,7 @@ Run the Server Script:
 ```bash
 python SimpleTLSServer.py 
 ```
-Keep this terminal open. The server will now listen for incoming file transfers.
+Keep this terminal open. The server will now listen for incoming messages.
 
 
 ### Running the Client
