@@ -89,6 +89,7 @@ shasum test.txt
 shasum mountain-lake.jpg 
 ```
 ```bash output
+30c727dab604af2be162a6fef5b98f563a4a6230  mountain-lake.jpg
 ```
 In the server directory:
 ```bash input
@@ -101,6 +102,7 @@ shasum test.txt
 shasum mountain-lake.jpg 
 ```
 ```bash output
+30c727dab604af2be162a6fef5b98f563a4a6230  mountain-lake.jpg
 ```
 
 when comparing the transfered files you can see that the sha1 hashes match meaning that our files transfered from the client to the server are the same files 
