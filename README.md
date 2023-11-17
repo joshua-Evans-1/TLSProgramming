@@ -17,7 +17,6 @@ python SimpleTLSServer.py
 ```
 Keep this terminal open. The server will now listen for incoming file transfers.
 
----
 
 ### Running the Client
 Open a New Terminal or Command Prompt.
@@ -33,7 +32,7 @@ python SimpleTLSClient.py
 
 ---
 
-# Secure File Transfer Application:
+## Secure File Transfer Application:
 
 ### Running the Server
 Open a Terminal or Command Prompt.
@@ -49,7 +48,6 @@ python NetFileXferServer.py <PORT>
 ```
 Keep this terminal open. The server will now listen for incoming file transfers.
 
----
 
 ### Running the Client
 Open a New Terminal or Command Prompt.
