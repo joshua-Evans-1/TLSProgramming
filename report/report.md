@@ -35,11 +35,6 @@ Project-3-TLSProgramming
 │    markdown file documenting how to set up and run the applications.
 ├── <a href="../README.txt" title="">README.txt</a>
 │    text file documenting how to set up and run the applications.
-├── TLSEchoServer
-│   ├── <a href="../TLSEchoServer/SimpleTLSClient.py" title="">SimpleTLSClient.py</a>
-│   │    Echo TLS Server.
-│   └── <a href="../TLSEchoServer/SimpleTLSServer.py" title="">SimpleTLSServer.py</a>
-│        Echo TLS Client.
 ├── certs
 │   ├── <a href="../certs/cert.pem" title="">cert.pem</a>
 │   │    cert for ssl.
