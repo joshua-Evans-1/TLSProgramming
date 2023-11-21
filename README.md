@@ -1,7 +1,7 @@
 # Project 3: TLS Programming 
 Joshua Evans JO9038RL
 
-[Overview & Implementation](/report/REPORT.md)
+[Overview & Implementation](/report/report.md)
 
 ## TLS-Enabled TCP Echo Server & Client:
 
