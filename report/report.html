@@ -1,0 +1,101 @@
+<h1 id="overview--implementation">Overview &amp; Implementation</h1>
+<p>this project involves enhancing a tcp server/client written in python to support tls encryption.</p>
+<p>the enhancements are done by wrapping the accepted client/server connection in this SSL context to secure it.</p>
+<p>enhancements for the server would look like</p>
+<pre><code class="language-python">context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+context.load_cert_chain(certfile=&#39;../../certs/cert.pem&#39;, keyfile=&#39;../../certs/key.pem&#39;)
+secureConnection = context.wrap_socket(client_socket, server_side=True)
+</code></pre>
+<pre><code class="language-python">file_name = secureConnection.recv(file_name_length).decode()
+</code></pre>
+<p>enhancements for the client would look like</p>
+<pre><code class="language-python">context = ssl.create_default_context(ssl.Purpose.SERVER_AUTH)
+context.check_hostname = False
+context.load_verify_locations(&quot;../certs/cert.pem&quot;)
+secureConnection = context.wrap_socket( client_socket, server_hostname=server_ip)
+</code></pre>
+<pre><code class="language-python">secureConnection.send(data)
+</code></pre>
+<h3 id="project-structure">project Structure</h3>
+<pre>
+Project-3-TLSProgramming
+├── NetFileXfer
+│   ├── <a href="../NetFileXfer/NetFileXferClient.py" title="">NetFileXferClient.py</a>
+│   │    Client code for tcp enhanced with tls written in Python.
+│   ├── <a href="../NetFileXfer/mountain-lake.jpg" title="">mountain-lake.jpg</a>
+│   │    test file to transfer between client and server.
+│   ├── server
+│   │   └── <a href="../NetFileXfer/server/NetFileXferServer.py" title="">NetFileXferServer.py</a>
+│   │        Server code for tcp enhanced with tls written in Python.
+│   └── <a href="../NetFileXfer/test.txt" title="">test.txt</a>
+│        test file to transfer between client and server.
+├── <a href="../README.md" title="">README.md</a>
+│    markdown file documenting how to set up and run the applications.
+├── <a href="../README.txt" title="">README.txt</a>
+│    text file documenting how to set up and run the applications.
+├── certs
+│   ├── <a href="../certs/cert.pem" title="">cert.pem</a>
+│   │    cert for ssl.
+│   └── <a href="../certs/key.pem" title="">key.pem</a>
+│        key for ssl.
+└── report
+    ├── <a href="report.md" title="">report.md</a>
+    │     A detailed report including: 
+    │     Overview of the implementation. 
+    │     Screenshots and analysis from Wireshark captures.
+    │     Reflection on certificate management.
+    ├── <a href="wireShark-after-tls.jpg" title="">wireShark-after-tls.jpg</a>
+    │    screenshot of wireshark after tls.
+    └── <a href="wireShark-before-tls.jpg" title="">wireShark-before-tls.jpg</a>
+         screenshot of wireshark before tls.
+
+</pre>
+
+<h3 id="wireshark-captures-for-tls-enabled-tcp-echo-server--client">Wireshark Captures for TLS-Enabled TCP Echo Server &amp; Client:</h3>
+<p>wireshark capture with tls implementation shows encrypted packet 
+<img src="WireShark-TLSEcho.jpg" alt="wireshark after tls"></p>
+<h3 id="wireshark-captures-for-netfilexfer">Wireshark Captures for NetFileXfer:</h3>
+<p>wireshark capture before tls implementation as you can see the packet is being sent in plain text
+<img src="wireShark-before-tls.jpg" alt="wireshark before tls">
+wireshark capture with tls implementation shows encrypted packet 
+<img src="wireShark-after-tls.jpg" alt="wireshark after tls"></p>
+<h3 id="verifying-the-transfer">Verifying the Transfer</h3>
+<p>In the client directory:</p>
+<pre><code class="language-bash">shasum test.txt 
+</code></pre>
+<pre><code class="language-bash">2880ad0ceaa3957f0ba001790fa7f8ac704dfb7a  test.txt
+</code></pre>
+<pre><code class="language-bash">shasum mountain-lake.jpg 
+</code></pre>
+<pre><code class="language-bash">30c727dab604af2be162a6fef5b98f563a4a6230  mountain-lake.jpg
+</code></pre>
+<p>In the server directory:</p>
+<pre><code class="language-bash">shasum test.txt
+</code></pre>
+<pre><code class="language-bash">2880ad0ceaa3957f0ba001790fa7f8ac704dfb7a  test.txt
+</code></pre>
+<pre><code class="language-bash">shasum mountain-lake.jpg 
+</code></pre>
+<pre><code class="language-bash">30c727dab604af2be162a6fef5b98f563a4a6230  mountain-lake.jpg
+</code></pre>
+<p>when comparing the transfered files you can see that the sha1 hashes match meaning that our files transfered from the client to the server are the same files </p>
+<h3 id="reflection-on-certificate-management">Reflection on certificate management.</h3>
+<ol>
+<li><p>role of certificate authorities (CAs)</p>
+<p> certificte authorities are here to make sure that information being sent from the user(client-side) and an organizion(server-side) are secure and being received/sent by the correct user/organization</p>
+</li>
+<li><p>the process of certificate validation</p>
+<p> client connects to TLS/TCP server<br />
+ server requests verification <br />
+ client send certificate<br />
+ client sends key <br />
+ the certificate is verified<br />
+ encrypted message is sent<br /></p>
+</li>
+<li><p>the implications of using self-signed certificates.</p>
+<p> using Self-Signed certificates as we did in this assignment should only be 
+ done when testing or a small scale project only meant to be used at home
+ when making a real project it needs to have a real certificate authority 
+ to verify.</p>
+</li>
+</ol>

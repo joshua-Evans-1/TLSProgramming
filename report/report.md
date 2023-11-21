@@ -1,6 +1,16 @@
 # Overview & Implementation
 
-this project involves enhancing a tcp server written in python to support tls encryption.
+> Table of Contents<br />
+ [Overview](#overview)<br />
+[Project Structure](#project-structure)<br />
+[WireShark Captures](#wireshark-captures-for-tls-enabled-tcp-echo-server--client)<br />
+[Verification](#verifying-the-transfer)<br />
+[Reflection](#reflection-on-certificate-management)<br />
+
+
+### Overview
+
+this project involves enhancing a tcp server/client written in python to support tls encryption.
 
 the enhancements are done by wrapping the accepted client/server connection in this SSL context to secure it.
 
@@ -64,11 +74,12 @@ Project-3-TLSProgramming
 </pre>
 
 ### Wireshark Captures for TLS-Enabled TCP Echo Server & Client:
-
+wireshark capture with tls implementation shows encrypted packet 
+![wireshark after tls](WireShark-TLSEcho.jpg)
 ### Wireshark Captures for NetFileXfer:
 wireshark capture before tls implementation as you can see the packet is being sent in plain text
 ![wireshark before tls](wireShark-before-tls.jpg)
-wireshark capture after tls implementation shows encrypted packet 
+wireshark capture with tls implementation shows encrypted packet 
 ![wireshark after tls](wireShark-after-tls.jpg)
 
 ### Verifying the Transfer
@@ -104,7 +115,22 @@ when comparing the transfered files you can see that the sha1 hashes match meani
 
 ### Reflection on certificate management.
 
-using Self-Signed certificates as we did in this assignment should only be 
-done when testing or a small scale project only meant to be used at home
-when making a real project it needs to have a real certificate authority 
-to verify.
+1. role of certificate authorities (CAs)
+
+    certificte authorities are here to make sure that information being sent from the user(client-side) and an organizion(server-side) are secure and being received/sent by the correct user/organization
+
+2. the process of certificate validation
+
+    client connects to TLS/TCP server<br />
+    server requests verification <br />
+    client send certificate<br />
+    client sends key <br />
+    the certificate is verified<br />
+    encrypted message is sent<br />
+
+3. the implications of using self-signed certificates.
+
+    using Self-Signed certificates as we did in this assignment should only be 
+    done when testing or a small scale project only meant to be used at home
+    when making a real project it needs to have a real certificate authority 
+    to verify.
