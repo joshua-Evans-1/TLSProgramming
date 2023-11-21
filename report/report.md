@@ -1,7 +1,7 @@
 # Overview & Implementation
 
 > Table of Contents<br />
- [Overview](#overview)<br />
+[Overview](#overview)<br />
 [Project Structure](#project-structure)<br />
 [WireShark Captures](#wireshark-captures-for-tls-enabled-tcp-echo-server--client)<br />
 [Verification](#verifying-the-transfer)<br />
@@ -15,6 +15,7 @@ this project involves enhancing a tcp server/client written in python to support
 the enhancements are done by wrapping the accepted client/server connection in this SSL context to secure it.
 
 enhancements for the server would look like
+
 ```python NetFileXferServer.py
 context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
 context.load_cert_chain(certfile='../../certs/cert.pem', keyfile='../../certs/key.pem')
