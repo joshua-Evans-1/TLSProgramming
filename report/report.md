@@ -106,3 +106,5 @@ when comparing the transfered files you can see that the sha1 hashes match meani
 
 using Self-Signed certificates as we did in this assignment should only be 
 done when testing or a small scale project only meant to be used at home
+when making a real project it needs to have a real certificate authority 
+to verify.

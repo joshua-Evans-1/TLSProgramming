@@ -21,14 +21,11 @@ Keep this terminal open. The server will now listen for incoming messages.
 ### Running the Client
 Open a New Terminal or Command Prompt.
 
-Navigate to the NetFileXfer directory:
-```bash
-cd path/to/TLSEchoServer
-```
 Run the Client Script to Send Message:
 ```bash
-python SimpleTLSClient.py 
+openssl s_client -connect localhost:12000
 ```
+Once connected, you can type messages and receive capitalized responses from the server.
 
 ---
 
