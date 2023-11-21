@@ -13,7 +13,7 @@ def send_file(server_ip, server_port, file_path):
     # Ensure that the given file exists
     assert os.path.exists(file_path), "File not found."
     
-    # Create a client socket using IPv4 and TCP
+    # Create a client socket using TCP
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     context = ssl.create_default_context(ssl.Purpose.SERVER_AUTH)
     context.check_hostname = False

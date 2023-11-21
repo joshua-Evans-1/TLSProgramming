@@ -4,19 +4,29 @@ this project involves enhancing a tcp server written in python to support tls en
 
 the enhancements are done by wrapping the accepted client/server connection in this SSL context to secure it.
 
+enhancements for the server would look like
 ```python NetFileXferServer.py
-# Wrap the socket to secure it using TLS
+context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+context.load_cert_chain(certfile='../../certs/cert.pem', keyfile='../../certs/key.pem')
 secureConnection = context.wrap_socket(client_socket, server_side=True)
 ```
-
-the server/client then uses the wrapped socket to transfer the encrypted files
 
 ```python NetFileXferServer.py
 file_name = secureConnection.recv(file_name_length).decode()
 ```
+
+enhancements for the client would look like
+
+```python NetFileXferClient.py
+context = ssl.create_default_context(ssl.Purpose.SERVER_AUTH)
+context.check_hostname = False
+context.load_verify_locations("../certs/cert.pem")
+secureConnection = context.wrap_socket( client_socket, server_hostname=server_ip)
+```
 ```python NetFileXferClient.py
 secureConnection.send(data)
 ```
+
 ### project Structure
 
 <pre>
@@ -53,8 +63,9 @@ Project-3-TLSProgramming
 
 </pre>
 
+### Wireshark Captures for TLS-Enabled TCP Echo Server & Client:
 
-### Wireshark Capture
+### Wireshark Captures for NetFileXfer:
 wireshark capture before tls implementation as you can see the packet is being sent in plain text
 ![wireshark before tls](wireShark-before-tls.jpg)
 wireshark capture after tls implementation shows encrypted packet 
@@ -93,3 +104,5 @@ when comparing the transfered files you can see that the sha1 hashes match meani
 
 ### Reflection on certificate management.
 
+using Self-Signed certificates as we did in this assignment should only be 
+done when testing or a small scale project only meant to be used at home
