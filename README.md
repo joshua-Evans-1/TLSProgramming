@@ -1,5 +1,5 @@
 # Project 3: TLS Programming 
-Joshua Evans JO9038RL
+Joshua Evans 
 
 [Overview & Implementation](/report/report.md)
 
